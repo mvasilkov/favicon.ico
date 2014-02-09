@@ -13,5 +13,9 @@
     "bugs": {
         "url": "https://github.com/mvasilkov/favicon.ico/issues"
     },
-    "dependencies": {}
+    "dependencies": {
+        "cheerio": "~0.13",
+        "imagemagick-native-2": "~0.2",
+        "request": "~2.33"
+    }
 }
