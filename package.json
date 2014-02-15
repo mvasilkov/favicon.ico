@@ -2,12 +2,13 @@
     "name": "faviconico",
     "version": "0.0.1",
     "description": "GET /favicon.ico",
+    "bin": "bin/favicon.ico",
     "main": "index.js",
     "repository": {
         "type": "git",
         "url": "https://github.com/mvasilkov/favicon.ico"
     },
-    "keywords": ["favicon"],
+    "keywords": ["favicon", "download"],
     "author": "Mark Vasilkov",
     "license": "BSD",
     "bugs": {

@@ -13,6 +13,7 @@ function getMany(domains) {
 }
 
 function get(domain, done) {
+    console.log('=>', domain)
     if (resemblesDomainName(domain)) {
         dns.resolve4(domain, function (err, addr) {
             if (err) {
@@ -30,14 +31,24 @@ function get(domain, done) {
     }
 }
 
-function get1(domain, done) {
-    var url = 'http://' + domain + '/favicon.ico'
+function get1(/* optional */ url, domain, done) {
+    if (typeof domain == 'function') {
+        done = domain
+        domain = url
+        url = 'http://' + domain + '/favicon.ico'
+    }
     request(options(url), function (err, res, buf) {
-        res.statusCode == 200 || (err = err || res.statusCode)
-        var contentType = res.headers['content-type'] || 'n/a'
-        contentType.substr(0, 6) == 'image/' || (err = err || contentType)
+        var err2, contentType
         if (err) {
             console.error('%s: cannot download\n(%s)', R(url), res.request.href)
+            setImmediate(done)
+            return
+        }
+        res.statusCode == 200 || (err2 = res.statusCode)
+        contentType = res.headers['content-type'] || 'n/a'
+        contentType.substr(0, 6) == 'image/' || (err2 = err2 || contentType)
+        if (err2) {
+            console.error('%s: problem downloading (%s)', R(url), err2)
             setImmediate(done)
             return
         }
