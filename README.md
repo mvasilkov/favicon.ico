@@ -1,6 +1,6 @@
 # favicon.ico
 
-GET /favicon.ico
+WHOEVER CONTROLS THE SPICE CONTROLS THE (SOME THING WHICH IS NOT THE SPICE).
 
 ## Installation
 
