@@ -1,6 +1,6 @@
 {
     "name": "faviconico",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "GET /favicon.ico",
     "bin": "bin/favicon.ico",
     "main": "index.js",
